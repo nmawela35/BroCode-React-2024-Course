@@ -1,26 +1,23 @@
-function List() {
-  const fruits = [
-    {id:1, name: "Apple", calories: 95 },
-    {id:2, name: "Mango", calories: 45 },
-    {id:3, name: "Banana", calories: 105 },
-    {id:4, name: "Orange", calories: 46 },
-    {id:5, name: "Coconut", calories: 159 },
-  ];
+function List(props) {
 
-  fruits.sort((a,b) =>a.name.localeCompare(b.name))
-  console.log(fruits)
+  const category =props.category;
+  const listItems = props.items;
 
-  const listItems = fruits.map((fruit) => (
-    <li key={fruit.id}>
-      {fruit.name}: <b>{fruit.calories}</b>
-    </li>
-  ));
+  listItems.sort((a, b) => a.calories - b.calories);
+
+  const items = listItems.map((item) => <li key={item.id}>{item.name} {item.calories? item.calories:item.weight}</li>);
 
   return (
     <div>
-      <ol>{listItems}</ol>
+      <h3>{category}</h3>
+      <ol>{items}</ol>
     </div>
   );
+}
+
+List.defaultProps ={
+  category: "Category",
+  items: []
 }
 
 export default List;

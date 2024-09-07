@@ -7,7 +7,7 @@ function List() {
     {id:5, name: "Coconut", calories: 159 },
   ];
 
-  fruits.sort((a,b) =>a.name.localeCompare(b.name))
+  fruits.sort((a,b) =>a.name.localeCompare(b.name)) //alphabetic order
   console.log(fruits)
 
   const listItems = fruits.map((fruit) => (
