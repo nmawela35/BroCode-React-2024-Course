@@ -1,4 +1,5 @@
-function List() {
+export default function List() {
+
   const fruits = [
     {id:1, name: "Apple", calories: 95 },
     {id:2, name: "Mango", calories: 45 },
@@ -7,21 +8,14 @@ function List() {
     {id:5, name: "Coconut", calories: 159 },
   ];
 
-  // fruits.sort((a,b) =>a.name.localeCompare(b.name))
-  // console.log(fruits)
+  // fruits.sort((a,b) =>b.name.localeCompare(b.name)) //alphabetical order
+  fruits.sort((a,b) =>a.calories -b.calories)
 
-  const listItems = fruits.filter((fruit) => fruit.name ="Coconut" r (
-    <li key={fruit.id}>
-      {fruit.name}: <b>{fruit.calories}</b>
-    </li>
-    
-  ));
+  const filterList =(fruits.filter((fruit) => fruit.calories>45))
+  const listItems = filterList.map((fruit) =><li key={fruit.id}>{fruit.name}: &nbsp;<strong>{fruit.calories}</strong></li>)
 
-  return (
-    <div>
-      <ol>{listItems}</ol>
-    </div>
-  );
+return(
+  <div><ol>{listItems}</ol></div>
+)
+
 }
-
-export default List;
