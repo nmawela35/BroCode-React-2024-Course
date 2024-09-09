@@ -9,9 +9,15 @@ export default function MyComponent() {
   function addCar() {
     const newCar = { year: carYear, make: carMake, model: carModel };
     setCars((c) => [...c, newCar]);
+
+    setCarYear(new Date().getFullYear());
+    setCarMake("")
+    setCarModel("")
   }
 
-  function removeCar() {}
+  function removeCar(index) {
+    setCars(c=>c.filter((_,i) => i !==index))
+  }
 
   function yearChange(e) {
     setCarYear(e.target.value);
@@ -30,7 +36,7 @@ export default function MyComponent() {
       <h2>List of Cars</h2>
       <ul>
         {cars.map((car,index) =>
-        <li key={index}>{car.make} {car.model} {car.year}</li>
+        <li key={index} onClick={() =>removeCar(index)}>{car.make} {car.model} {car.year}</li>
         )}
       </ul>
 
