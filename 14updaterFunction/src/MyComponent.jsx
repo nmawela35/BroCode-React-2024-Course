@@ -4,19 +4,20 @@ export default function MyComponent() {
     const [count,setCount] =useState(0);
 
     function increment(){
-        setCount(prev => prev+1)
-        setCount(prev => prev+1)
-        setCount(prev => prev+1)
+        setCount(prevCount => prevCount+1)
+        setCount(prevCount => prevCount+1)
+        setCount(prevCount => prevCount+1)
+        //UPDATE
     }
 
     function decrement(){
-        setCount(prev => prev-1)
-        setCount(prev => prev-1)
-        setCount(prev => prev-1)
+        setCount(prevCount => prevCount-1)
+        setCount(prevCount => prevCount-1)
+        setCount(prevCount => prevCount-1)
     }
 
     function reset(){
-        setCount(prev =>prev=0)
+        setCount(prevCount =>prevCount=0)
     }
 
   return (
