@@ -1,34 +1,33 @@
+import { useRef } from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [number, setNumber] = useState(0)
+  const ref =useRef(0)
+  console.log(ref)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+  const click =()=>{
+    setNumber(number+1)
+  }
+
+  function refClick(){
+    ref.current = ref.current +1;
+    console.log(ref.current)
+  }
+
+  useEffect(()=>{
+    console.log("component rendered")
+  })
+
+ return(
+  <div>
+    <h1>UseState</h1>
+    <p>Number: {number}</p>
+    <button onClick={click}>Click Here</button>
+    <button onClick={refClick}>Click Ref</button>
+  </div>
+ )
 }
 
 export default App
